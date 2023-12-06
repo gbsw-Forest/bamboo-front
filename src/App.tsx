@@ -1,41 +1,60 @@
 import React, { useState } from "react";
 import Report from "./Report";
+import axios from 'axios';
+import GbswChar from '../src/img/gbsw_char.png'
 
 const App: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  //테스트용 데이터 지워도됨
-  const postData = [
-    {
-      id: 1,
-      date: "2023년 12월 5일 12:01",
-      title: "경대숲",
-      text: "ㄸㄱ",
-      tag: "기타",
-    },
-    {
-      id: 2,
-      date: "2023년 12월 5일 12:01",
-      title: "경대숲",
-      text: "ㄸㄱ",
-      tag: "기타",
-    },
-    {
-      id: 3,
-      date: "2023년 12월 5일 12:01",
-      title: "경대숲",
-      text: "ㄸㄱ",
-      tag: "기타",
-    },
-    {
-      id: 4,
-      date: "2023년 12월 5일 12:01",
-      title: "경대숲",
-      text: "ㄸㄱ",
-      tag: "기타",
-    },
-  ];
+    axios('', {
+      method: "get",
+      data: {
+        password:"number",
+        title: "string",
+        tag: "string",
+        text:"string"
+      }
+    })
+    axios('', {
+      method: "post",
+      data: {
+        
+      }
+    })
+
+    //테스트용 데이터 지워도됨
+    const postData = [
+      {
+        id: 1,
+        date: "2023년 12월 5일 12:01",
+        title: "경대숲",
+        text: "10글자 이상시 자세히 보기를 누르셔야 보ㅛㅓㅇㅇㅅㅇ성ㅅ성홍제색개힙밣렪ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ입니다 ㅁㄴㅇㄹsdfjkasdfjal;skdfjas;lkdfjas;lfdfdfdfdfdfdfsdfdsfdsdqwrasfzsfjnsjkflkzjfsdf",
+        tag: "기타",
+      },
+      {
+        id: 2,
+        date: "2023년 12월 5일 12:01",
+        title: "경대숲",
+        text: "ㄸㄱ",
+        tag: "기타",
+      },
+      {
+        id: 3,
+        date: "2023년 12월 5일 12:01",
+        title: "경대숲",
+        text: "ㄸㄱ",
+        tag: "기타",
+      },
+      {
+        id: 4,
+        date: "2023년 12월 5일 12:01",
+        title: "경대숲",
+        text: "ㄸㄱ",
+        tag: "기타",
+      },
+    ];
+  
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitted(true);
@@ -50,6 +69,7 @@ const App: React.FC = () => {
     <>
       <div className={`background ${isDarkTheme ? "dark-theme" : ""}`}></div>
       <div className={`inner ${isDarkTheme ? "dark-theme" : ""}`}>
+            <img src={GbswChar} className="gbsw-logo"/>
         <header>
           <h3>
             <div>경</div>소고<div>&nbsp;대</div>나무<div>숲</div>
@@ -80,7 +100,7 @@ const App: React.FC = () => {
               defaultValue="none"
               className={`${isDarkTheme ? "dark-theme" : ""}`}
             >
-              <option value="none" disabled></option>
+              <option value="none" disabled>태그 선택</option>
               {/* none이면 제출 안되게 */}
               <option value="궁금증">궁금증</option>
               <option value="토론">토론</option>
@@ -108,9 +128,11 @@ const App: React.FC = () => {
           <div className="submit-check">제보가 성공적으로 완료되었습니다!</div>
         )} */}
         </form>
+        
         {postData.map((post) => (
           <Report isDarkTheme={isDarkTheme} key={post.id} {...post} />
         ))}
+        
       </div>
     </>
   );

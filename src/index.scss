@@ -65,6 +65,7 @@ body {
 }
 
 .inner {
+  position: relative;
   width: 100%;
   padding: 1rem;
   &.dark-theme {
@@ -199,6 +200,7 @@ form {
 .report-text {
   font-size: 16px;
   font-weight: 400;
+  display: inline;
 }
 .report-tag {
   margin-top: 10px;
@@ -215,6 +217,24 @@ form {
     color: #fff;
   }
 }
+
+.report-about {
+  color:#aaa;
+  font-size: 1rem;
+}
+
+.report-about:hover {
+  cursor: pointer;
+  color: #0067c7;
+}
+
+.gbsw-logo {
+  width: 60px;
+  position: absolute;
+  margin-left: 128px;
+  margin-top: -10px;
+}
+
 @media only screen and (min-width: 800px) {
   .inner {
     max-width: 800px;
